@@ -339,6 +339,37 @@
 #define EXP2_07_PIN                         PF12
 #define EXP2_08_PIN                         -1
 
+#if EITHER(HAS_DWIN_E3V2, IS_DWIN_MARLINUI)
+  #error "Ender-3 V2 display requires a custom cable with TX = P0_15, RX = P0_16. Comment out this line to continue."
+
+ /**
+  *          Ender 3 V2 display                       SKR E3 Turbo (EXP1)                Ender 3 V2 display --> SKR E3 Turbo
+  *                ------                                     ------                                  RX  8 -->  5  P0_15
+  *            5V | 1  2 | GND                            5V | 1  2 | GND                             TX  7 -->  9  P0_16
+  *   (BTN_E1)  A | 3  4 | B   (BTN_E2)       (LCD_EN) P0_18 | 3  4 | P0_17 (LCD_RS)              BEEPER  5 --> 10  P2_08
+  *        BEEPER | 5  6   ENT (BTN_ENC)      (LCD_D4) P0_15 | 5  6   P0_20 (BTN_EN2)
+  *  (SKR_RX1) TX | 7  8 | RX  (SKR_TX1)               Reset | 7  8 | P0_19 (BTN_EN1)
+  *            NC | 9 10 | NC                (BTN_ENC) P0_16 | 9 10 | P2_08 (BEEPER)
+  *                ------                                     ------
+  */
+
+/**               ------                                      ------
+ * (BEEPER) PG4  |10  9 | PA8  (BTN_ENC)         (MISO) PB14 |10  9 | PB13 (SCK)
+ * (LCD_EN) PD11 | 8  7 | PD10 (LCD_RS)       (BTN_EN1) PG10 | 8  7 | PB12 (SD_SS)
+ * (LCD_D4) PG2    6  5 | PG3  (LCD_D5)       (BTN_EN2) PF11   6  5 | PB15 (MOSI)
+ * (LCD_D6) PG6  | 4  3 | PG7  (LCD_D7)     (SD_DETECT) PF12 | 4  3 | RESET
+ *          GND  | 2  1 | 5V                            GND  | 2  1 | NC
+ *                ------                                      ------
+ *                 EXP1                                        EXP2
+ */
+
+// TODO work out this mapping. It's not worth it for now.
+  #define BEEPER_PIN                 EXP1_10_PIN
+  #define BTN_EN1                    EXP1_03_PIN
+  #define BTN_EN2                    EXP1_04_PIN
+  #define BTN_ENC                    EXP1_06_PIN
+#endif
+
 //
 // Onboard SD card
 // Must use soft SPI because Marlin's default hardware SPI is tied to LCD's EXP2
