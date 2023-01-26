@@ -1170,7 +1170,7 @@
  */
 // https://blog.prusaprinters.org/calculator_3416/
 // #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 500 }
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93*2 }
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
