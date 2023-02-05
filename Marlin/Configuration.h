@@ -1170,7 +1170,7 @@
  */
 // https://blog.prusaprinters.org/calculator_3416/
 // #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 500 }
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 567 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 425 }
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1486,7 +1486,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET {-30, -41, 0 }
+#define NOZZLE_TO_PROBE_OFFSET {-30, -41, -2.4}
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
